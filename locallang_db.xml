@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'simple_slider'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_pi1">Simple Slider</label>
+			<label index="tx_simpleslider_items">Slider Item</label>
+			<label index="tx_simpleslider_items.header">Header</label>
+			<label index="tx_simpleslider_items.subheader">Subheader</label>
+			<label index="tx_simpleslider_items.image">Image</label>
+			<label index="tx_simpleslider_items.link">Link</label>
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="tt_content.list_type_pi1">Простой слайдер</label>
+			<label index="tx_simpleslider_items">Изображение слайдера</label>
+			<label index="tx_simpleslider_items.header">Заголовок</label>
+			<label index="tx_simpleslider_items.subheader">Подзаголовок</label>
+			<label index="tx_simpleslider_items.image">Изображение</label>
+			<label index="tx_simpleslider_items.link">Ссылка</label>
+		</languageKey>
+	</data>
+</T3locallang>

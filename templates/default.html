@@ -1,0 +1,83 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Default template for plugin &quot;tx_simpleslider_pi1&quot;</title>
+	<style type="text/css">
+		/*<![CDATA[*/
+		<!--
+		body {
+			font-family:sans-serif;
+		}
+		div.template {
+			border:1px solid #000;
+			background-color:#aaa;
+			font-family:serif;
+			padding:5px;
+		}
+		//-->
+		/*]]>*/
+	</style>
+</head>
+
+<body style="font-family:sans-serif;">
+
+
+
+<h2>Default template for plugin &quot;tx_simpleslider_pi1&quot;</h2>
+
+<h3>TEMPLATE_SLIDER</h3>
+
+<p>Template of slider parts</p>
+<p>Possible markers:</p>
+<ul>
+	<li>###SLIDER### - slider</li>
+</ul>
+
+<div class="template">
+<!-- ###TEMPLATE_SLIDER### begin -->
+
+	<div class="tx-simpleslider-pi1-slider">
+		<div class="tx-simpleslider-pi1-slides">###SLIDER###</div>
+		###SWITCHER###
+	</div>
+
+<!-- ###TEMPLATE_SLIDER### end -->
+</div>
+
+
+
+<h3>TEMPLATE_SLIDER_ITEM</h3>
+
+<p>Template of slider item</p>
+<p>Possible markers:</p>
+<ul>
+	<li>###LINK_OPEN### - &lt;a&gt;-tag opening</li>
+	<li>###LINK_CLOSE### - &lt;a&gt;-tag closing</li>
+	<li>###IMAGE### - &lt;IMG&gt;-tag wrapped image</li>
+	<li>###IMG_RESOURCE### - image url</li>
+	<li>###HEADER### - slide header</li>
+	<li>###SUBHEADER### - slide subheader</li>
+</ul>
+
+<div class="template">
+<!-- ###TEMPLATE_SLIDER_ITEM### begin -->
+
+	<div class="tx-simpleslider-pi1-item">
+		<div class="tx-simpleslider-pi1-image">###LINK_OPEN######IMAGE######LINK_CLOSE###</div>
+		<div class="tx-simpleslider-pi1-header">###HEADER###</div>
+		<div class="tx-simpleslider-pi1-subheader">###SUBHEADER###</div>
+	</div>
+
+<!-- ###TEMPLATE_SLIDER_ITEM### end -->
+</div>
+
+
+
+</body>
+
+</html>

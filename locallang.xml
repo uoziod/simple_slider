@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for extension 'simple_slider'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pi1_title">Simple Slider</label>
+			<label index="pi1_plus_wiz_description">Box of switching images with different animation effects, captions and advanced configuration.</label>
+			<label index="ff_general">General Settings</label>
+			<label index="ff_templateFile">Custom Template File</label>
+			<label index="ff_animation">Slide Animation Type</label>
+			<label index="ff_animationSpeed">Animation Speed (ms)</label>
+			<label index="ff_slidePause">Slide Pause (ms)</label>
+			<label index="ff_imageWidth">Image Width (px)</label>
+			<label index="ff_imageHeight">Image Height (px)</label>
+			<label index="ff_storePid">Store PID (where slides records are stored)</label>
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="pi1_title">Простой слайдер</label>
+			<label index="pi1_plus_wiz_description">Блок переключающихся изображений с заголовками и другими настройками.</label>
+			<label index="ff_templateFile">Пользовательский файл шаблона</label>
+			<label index="ff_general">Основные настройки</label>
+			<label index="ff_animation">Тип анимации слайдов</label>
+			<label index="ff_animationSpeed">Скорость анимации (мс)</label>
+			<label index="ff_slidePause">Пауза слайда (ms)</label>
+			<label index="ff_imageWidth">Ширина слайда (пикс)</label>
+			<label index="ff_imageHeight">Высота слайда (пикс)</label>
+			<label index="ff_storePid">Страница, где хранятся слайды</label>
+		</languageKey>
+	</data>
+</T3locallang>
