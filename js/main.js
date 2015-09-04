@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
 
 	tx_simpleslider_pi1_conf['items'] = new Array();
 	tx_simpleslider_pi1_conf['focus'] = true;
-
+	
 	jQuery('.tx-simpleslider-pi1-slider').each(function(count) {
 
 		jQuery(this).attr('id', 'tx-simpleslider-pi1-slider-' + count);
@@ -43,10 +43,11 @@ jQuery(document).ready(function() {
 
 				jQuery(this).find('.tx-simpleslider-pi1-item').css({
 					'position': 'absolute',
-					'opacity': 0
+					'opacity': 0,
+					'z-index': 0
 				});
 
-				jQuery(this).find('.tx-simpleslider-pi1-item:eq(0)').css({'opacity': 1});
+				jQuery(this).find('.tx-simpleslider-pi1-item:eq(0)').css({'opacity': 1, 'z-index': 1});
 
 			}
 
@@ -89,9 +90,11 @@ function tx_simpleslider_pi1_slide(slider) {
 			if (tx_simpleslider_pi1_conf['items'][slider]['currentItem'] == 0)
 				jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:gt(0)').animate({
 					'opacity': 0
-				}, tx_simpleslider_pi1_conf['animationSpeed']);
+				}, tx_simpleslider_pi1_conf['animationSpeed'], function() {
+					jQuery(this).css('z-index', 0);
+				});
 			else
-				jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:eq(' + tx_simpleslider_pi1_conf['items'][slider]['currentItem'] + ')').animate({
+				jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:eq(' + tx_simpleslider_pi1_conf['items'][slider]['currentItem'] + ')').css('z-index', 1).animate({
 					'opacity': 1
 				}, tx_simpleslider_pi1_conf['animationSpeed']);
 
@@ -123,14 +126,14 @@ function tx_simpleslider_pi1_switch(slider, slideNum) {
 	if (tx_simpleslider_pi1_conf['animation'] == 'fade') {
 
 		if (slideNum == 0)
-			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:gt(0)').animate({
+			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:gt(0)').css('z-index', 0).animate({
 				'opacity': 0
 			}, tx_simpleslider_pi1_conf['animationSpeed']);
 		else {
-			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:eq(' + slideNum + ')').animate({
+			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:eq(' + slideNum + ')').css('z-index', 1).animate({
 				'opacity': 1
 			}, tx_simpleslider_pi1_conf['animationSpeed']);
-			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:gt(' + slideNum + ')').animate({
+			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:gt(' + slideNum + ')').css('z-index', 0).animate({
 				'opacity': 0
 			}, tx_simpleslider_pi1_conf['animationSpeed']);
 		}
