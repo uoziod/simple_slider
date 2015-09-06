@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
 
-	tx_simpleslider_pi1_conf['items'] = new Array();
+	tx_simpleslider_pi1_conf['items'] = [];
 	tx_simpleslider_pi1_conf['focus'] = true;
 	
 	jQuery('.tx-simpleslider-pi1-slider').each(function(count) {
@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
 		jQuery(this).attr('id', 'tx-simpleslider-pi1-slider-' + count);
 		jQuery(this).find('.tx-simpleslider-pi1-switcher').attr('id', 'tx-simpleslider-pi1-switcher-' + count);
 
-		tx_simpleslider_pi1_conf['items'][count] = new Array();
+		tx_simpleslider_pi1_conf['items'][count] = [];
 
 		var items = jQuery(this).find('.tx-simpleslider-pi1-item');
 
@@ -53,16 +53,19 @@ jQuery(document).ready(function() {
 
 			tx_simpleslider_pi1_conf['items'][count]['interval'] = setInterval(function() { tx_simpleslider_pi1_slide(count); }, tx_simpleslider_pi1_conf['slidePause']);
 
-			jQuery('#tx-simpleslider-pi1-switcher-' + count).append('<ul />');
+			var $switcherAnchor = jQuery('#tx-simpleslider-pi1-switcher-' + count);
+
+			$switcherAnchor.append('<ul />');
 			var switcherContent = '<ul>';
-			for (var i=0; i<items.length; i++) {
-				if (i == 0)
+			for (var i = 0; i < items.length; i++) {
+				if (i == 0) {
 					switcherContent += '<li class="active"><a href="javascript:tx_simpleslider_pi1_switch(' + count + ', ' + i + ');"></a></li>';
-				else
+				} else {
 					switcherContent += '<li><a href="javascript:tx_simpleslider_pi1_switch(' + count + ', ' + i + ');"></a></li>';
+				}
 			}
 			switcherContent += '</ul>';
-			jQuery('#tx-simpleslider-pi1-switcher-' + count).html(switcherContent);
+			$switcherAnchor.html(switcherContent);
 
 		}
 
@@ -87,16 +90,14 @@ function tx_simpleslider_pi1_slide(slider) {
 
 		if (tx_simpleslider_pi1_conf['animation'] == 'fade') {
 
-			if (tx_simpleslider_pi1_conf['items'][slider]['currentItem'] == 0)
-				jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:gt(0)').animate({
-					'opacity': 0
-				}, tx_simpleslider_pi1_conf['animationSpeed'], function() {
-					jQuery(this).css('z-index', 0);
-				});
-			else
-				jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:eq(' + tx_simpleslider_pi1_conf['items'][slider]['currentItem'] + ')').css('z-index', 1).animate({
-					'opacity': 1
-				}, tx_simpleslider_pi1_conf['animationSpeed']);
+			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:eq(' + tx_simpleslider_pi1_conf['items'][slider]['currentItem'] + ')').css('z-index', 1).animate({
+				'opacity': 1
+			}, tx_simpleslider_pi1_conf['animationSpeed']);
+			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item').not(':eq(' + tx_simpleslider_pi1_conf['items'][slider]['currentItem'] + ')').css('z-index', 1).animate({
+				'opacity': 0
+			}, tx_simpleslider_pi1_conf['animationSpeed'], function() {
+				jQuery(this).css('z-index', 0);
+			});
 
 		}
 
@@ -125,11 +126,11 @@ function tx_simpleslider_pi1_switch(slider, slideNum) {
 
 	if (tx_simpleslider_pi1_conf['animation'] == 'fade') {
 
-		if (slideNum == 0)
+		if (slideNum == 0) {
 			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:gt(0)').css('z-index', 0).animate({
 				'opacity': 0
 			}, tx_simpleslider_pi1_conf['animationSpeed']);
-		else {
+		} else {
 			jQuery('#tx-simpleslider-pi1-slider-' + slider + ' .tx-simpleslider-pi1-item:eq(' + slideNum + ')').css('z-index', 1).animate({
 				'opacity': 1
 			}, tx_simpleslider_pi1_conf['animationSpeed']);
